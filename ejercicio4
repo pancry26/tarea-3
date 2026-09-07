@@ -1,1 +1,38 @@
+interface Imprimible {
+    void imprimir();
+}
 
+interface Escaneable {
+    void escanear();
+}
+
+class Impresora implements Imprimible {
+    @Override
+    public void imprimir() {
+        System.out.println("Imprimiendo documento");
+    }
+}
+
+class ImpresoraMultifuncional implements Imprimible, Escaneable {
+    @Override
+    public void imprimir() {
+        System.out.println("Imprimiendo documento");
+    }
+
+    @Override
+    public void escanear() {
+        System.out.println("Escaneando documento");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Impresora impresora = new Impresora();
+        ImpresoraMultifuncional multifuncional = new ImpresoraMultifuncional();
+
+        impresora.imprimir();
+
+        multifuncional.imprimir();
+        multifuncional.escanear();
+    }
+}
